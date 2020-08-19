@@ -22,5 +22,5 @@
                 padding: 20px;
                 word-break: break-word;
         }
-       
+
 </style>

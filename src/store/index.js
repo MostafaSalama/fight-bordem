@@ -24,7 +24,7 @@ export default new Vuex.Store({
       const response = await fetch(API_URL) ;
       const {activity} = await response.json() ;
       context.commit('setActivity', activity) ;
-      context.commit("setLoading",false);  
+      context.commit("setLoading",false);
     }
   },
   modules: {
