@@ -8,7 +8,7 @@ export default new Vuex.Store({
 		activity: {},
 		loading: false,
 		isCurrentActivityLiked: false,
-		favoriteActivities: [],
+		favoriteActivities: JSON.parse(localStorage.getItem('activities')) || [],
 	},
 	getters: {
 		activity(state) {
@@ -24,6 +24,10 @@ export default new Vuex.Store({
 		},
 		addActivity(state, activity) {
 			state.favoriteActivities = [activity, ...state.favoriteActivities];
+			localStorage.setItem(
+				'activities',
+				JSON.stringify(state.favoriteActivities),
+			);
 		},
 		setLoading(state, value) {
 			state.loading = value;
@@ -31,6 +35,10 @@ export default new Vuex.Store({
 		removeActivity(state, activityId) {
 			state.favoriteActivities = state.favoriteActivities.filter(
 				(a) => a.id !== activityId,
+			);
+			localStorage.setItem(
+				'activities',
+				JSON.stringify(state.favoriteActivities),
 			);
 		},
 	},
