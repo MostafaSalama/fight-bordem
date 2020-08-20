@@ -32,6 +32,7 @@ export default {
 	font-size: 2.5rem;
 	font-style: italic;
 	font-weight: 900;
+	background-color: #ffffff;
 	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
 	padding: 20px;
 	word-break: break-word;

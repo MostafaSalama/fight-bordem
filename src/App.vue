@@ -27,6 +27,9 @@
   * {
     box-sizing: border-box;
   }
+  body {
+    background-color: #F5F5F5;
+  }
   ul {
     list-style: none;
     display: flex;
