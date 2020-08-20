@@ -6,7 +6,9 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     activity : {},
-    loading:false
+    loading:false,
+    isCurrentActivityLiked:false,
+    favoriteActivities:[]
   },
   getters:{
     activity(state){
@@ -15,8 +17,13 @@ export default new Vuex.Store({
   },
   mutations: {
     setActivity(state,payload) {
-      console.log(typeof payload)
       state.activity = payload ;
+    },
+    setLiked(state,value) {
+        state.isCurrentActivityLiked = value ;
+        if(state.isCurrentActivityLiked) {
+          state.favoriteActivities.unshift(state.activity) ;
+        }
     },
     setLoading(state,value){
       state.loading =  value ;
@@ -29,6 +36,7 @@ export default new Vuex.Store({
       const response = await fetch(API_URL) ;
       const {activity} = await response.json() ;
       context.commit('setActivity', {activity,id:nanoid()}) ;
+      context.commit('setLiked',false);
       context.commit("setLoading",false);
     }
   },
