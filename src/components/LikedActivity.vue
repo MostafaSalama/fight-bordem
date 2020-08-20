@@ -1,7 +1,7 @@
 <template>
     <div class="activity-item">
         <p>{{activity}}</p>
-        <HeartIcon fill-color="#E0245E"/>
+        <HeartIcon :id="id" fill-color="#E0245E" @toggle-activity="removeActivity"/>
     </div>
 </template>
 <script>
@@ -12,6 +12,11 @@ export default {
     props: {
         activity:String,
         id:String
+    },
+    methods:{
+        removeActivity(){
+            this.$store.commit('removeActivity',this.id)
+        }
     }
 }
 </script>

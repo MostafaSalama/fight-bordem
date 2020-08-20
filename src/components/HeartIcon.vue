@@ -5,7 +5,7 @@
 		viewBox="0 0 24 24"
 		xmlns="http://www.w3.org/2000/svg"
         class="svg"
-        @click="$emit('update-liked')"
+        @click="handleClick"
 	>
 		<path
 			clip-rule="evenodd"
@@ -21,6 +21,17 @@ export default {
 		fillColor :{
 			type:String,
 			required:true
+		},
+		id:String
+	},
+	methods:{
+		handleClick(){
+			if(!this.id){
+			this.$emit('update-liked')
+			}
+			else {
+				this.$emit('toggle-activity') ;
+			}
 		}
 	}
 };
