@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <header>
+      <h1>Feeling Tired!! Try Something new now just click the button</h1>
+    </header>
     <div id="nav">
       <nav>
         <ul>
