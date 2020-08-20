@@ -34,9 +34,7 @@
     justify-content: center;
   }
   ul > li {
-    padding: 10px;
-    margin-left: 10px;
-    background-color: #f5efef;
+    text-align: center;
     color: #ffffff;
   }
 #app {
@@ -52,6 +50,9 @@
 }
 
 #nav a {
+  padding: 10px;
+  margin-left: 10px;
+  background-color: #f5efef;
   font-weight: bold;
   color: #2c3e50;
   text-decoration: none;
