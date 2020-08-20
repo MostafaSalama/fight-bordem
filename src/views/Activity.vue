@@ -11,7 +11,7 @@
     import ActivityMessage from "../components/ActivityMessage";
     export default {
         name: 'Activity',
-        components: {ActivityMessage, ActivityButton},
+        components: { ActivityMessage, ActivityButton},
         computed:mapState(['loading'])
     }
 </script>
