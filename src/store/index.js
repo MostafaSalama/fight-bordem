@@ -1,17 +1,22 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import {nanoid} from 'nanoid'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    activity : '',
+    activity : {},
     loading:false
   },
+  getters:{
+    activity(state){
+      return state.activity.activity ;
+    }
+  },
   mutations: {
-    setActivity(state,message) {
-      console.log(typeof message)
-      state.activity = message ;
+    setActivity(state,payload) {
+      console.log(typeof payload)
+      state.activity = payload ;
     },
     setLoading(state,value){
       state.loading =  value ;
@@ -23,7 +28,7 @@ export default new Vuex.Store({
       context.commit("setLoading",true) ;
       const response = await fetch(API_URL) ;
       const {activity} = await response.json() ;
-      context.commit('setActivity', activity) ;
+      context.commit('setActivity', {activity,id:nanoid()}) ;
       context.commit("setLoading",false);
     }
   },
