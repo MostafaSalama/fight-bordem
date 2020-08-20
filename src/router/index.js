@@ -8,6 +8,11 @@ Vue.use(VueRouter)
       path:'/',
       name : 'home',
       component:Activity
+    },
+    {
+      path:'/liked',
+      name:'liked',
+      component: ()=>import(/* webpackChunkName: "liked-activities" */ '../views/LikedActivityView')
     }
 ]
 
